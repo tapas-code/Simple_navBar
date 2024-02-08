@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--
+        Navbar 
+    -->
+    <navbar>
+      <div class="upper--nav">
+        <div class="username">Simran Sahu</div>
+        <div class="userrole">UI/UX</div>
+      </div>
+
+      <div class="lower--nav">
+        <ul class="menu--items">
+          <li><a href="#" onclick="loadPage('Dashboard')">Dashboard</a></li>
+          <li><a href="#" onclick="loadPage('UserList')">User List</a></li>
+          <li><a href="#" onclick="loadPage('UserSetup')">User Setup</a></li>
+          <li><a href="#" onclick="loadPage('UserDetail')">User Detail</a></li>
+        </ul>
+      </div>
+    </navbar>
+
+    <!--
+        Main Secton
+    -->
+    <main class="page-content" id="page-content">
+        <h1 style="text-align: center;">Home Page</h1>
+    </main>
+
+    <!--
+        Footer
+    -->
+    <footer></footer>
+
+    <script>
+      function loadPage(pageName) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("page-content").innerHTML =
+              this.responseText;
+          }
+        };
+        xhttp.open("GET", pageName + ".html", true);
+        xhttp.send();
+      }
+    </script>
+
+  </body>
+</html>
